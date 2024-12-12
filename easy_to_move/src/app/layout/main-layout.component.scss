@@ -1,0 +1,33 @@
+/* Estilo do Menu Lateral */
+.sidebar {
+  width: 250px; /* Tamanho do menu lateral */
+  height: 100vh; /* Ocupa toda a altura da tela */
+  position: fixed; /* Fixa o menu lateral */
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li {
+  margin: 20px 0;
+}
+
+.sidebar a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.sidebar a:hover {
+  color: #ddd;
+}
+
+/* Estilo do conteúdo principal */
+.content {
+  margin-left: 250px; /* Deixa espaço para o menu lateral */
+}

@@ -1,3 +1,13 @@
 html, body, app-root, router-outlet {
   height: 100%; /* Propaga a altura através dos elementos */
 }
+
+
+body {
+  background-color: #f1f1f1;
+}
+
+.content-wrapper {
+  margin-left: 250px;
+  padding: 20px;
+}

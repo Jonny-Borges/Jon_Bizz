@@ -1,0 +1,21 @@
+// Define a largura fixa do menu lateral
+.d-flex {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;  // Para garantir que o menu fique sobre o conteúdo
+}
+
+.nav-link {
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.nav-link:hover {
+  background-color: #007bff;
+  color: white;
+}
+
+.bi {
+  margin-right: 10px;
+}
