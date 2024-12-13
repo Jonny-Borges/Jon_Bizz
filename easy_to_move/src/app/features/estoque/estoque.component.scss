@@ -1,0 +1,28 @@
+.container {
+    h2 {
+      font-size: 1.8rem;
+      color: #333;
+    }
+  
+    button {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+  
+    table {
+      th,
+      td {
+        text-align: center;
+        vertical-align: middle;
+        //align-items: center;
+      }
+  
+      .btn {
+        font-size: 0.9rem;
+        align-items: center;
+      }
+    }
+  }
+  
+  
