@@ -31,3 +31,43 @@ Caso tenha sugestões ou queira colaborar com o projeto, fique à vontade para e
 ## 📞 Contato
 - Autor: Jonny Borges da Silviera
 - Email: [jonnyborges@hotmail]
+
+# 📑 O que foi feito até agora
+
+## 1. Tela de Login
+A tela de login foi implementada, onde o usuário pode inserir o e-mail e senha para acessar o sistema.
+
+## 2. Estrutura do Projeto
+
+### Layout Principal
+- **Menu Lateral**: O layout principal da aplicação foi criado com um menu lateral que permite ao usuário navegar entre as funcionalidades do sistema. O menu contém os seguintes links:
+  - **Home**: Página de boas-vindas.
+  - **Estoque**: Página para gestão do estoque.
+  - **Produtos**: (Removido, as informações de produto foram integradas diretamente ao estoque).
+  
+### 3. Páginas Desenvolvidas
+- **Página Home**: Página inicial de boas-vindas com mensagens de introdução.
+- **Página de Estoque**: Página para cadastrar, editar e listar itens do estoque. Cada item contém informações como preço, descrição e código de barras.
+
+## 4. Funcionalidade de Estoque
+- **Cadastro de Produtos no Estoque**: A página de estoque permite cadastrar itens, incluindo campos como **preço**, **descrição**, e **código de barras**.
+- **Listagem de Itens no Estoque**: Exibição de todos os itens cadastrados, com suas respectivas informações.
+
+## 5. Rotas
+As rotas do Angular estão configuradas da seguinte forma:
+- **/login**: Acessa a tela de login.
+- **/**: Página inicial, redireciona para a página de **Estoque**.
+- **/estoque**: Página onde os itens do estoque são cadastrados e listados.
+
+## 🔧 Instruções para rodar o projeto
+
+### Requisitos
+- **Node.js** e **npm** (para o frontend Angular)
+- **Java** e **Spring Boot** (para o backend)
+- **Electron** (para a versão desktop, se necessário)
+
+### Para rodar o projeto localmente:
+1. Clone o repositório.
+2. Navegue até a pasta do frontend e instale as dependências:
+   ```bash
+   npm install
