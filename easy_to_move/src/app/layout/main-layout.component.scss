@@ -1,33 +1,40 @@
-/* Estilo do Menu Lateral */
+/* Estilo da Sidebar */
 .sidebar {
-  width: 250px; /* Tamanho do menu lateral */
-  height: 100vh; /* Ocupa toda a altura da tela */
-  position: fixed; /* Fixa o menu lateral */
-  top: 0;
-  left: 0;
-  z-index: 1000;
-}
-
-.sidebar ul {
-  list-style: none;
+  background-color: #000; /* Fundo preto */
+  color: #fff; /* Texto branco */
+  height: 100vh; /* Altura total */
   padding: 0;
+  width: 250px; /* Aumenta a largura */
 }
 
-.sidebar li {
-  margin: 20px 0;
-}
-
-.sidebar a {
+.sidebar h2 {
   color: #fff;
+  font-size: 1.5rem;
+  padding: 1rem;
+  text-align: center;
+}
+
+.sidebar .nav-link {
+  color: #fff;
+  padding: 0.75rem 1rem;
+  display: block;
   text-decoration: none;
-  font-size: 18px;
+  transition: background 0.3s ease;
 }
 
-.sidebar a:hover {
-  color: #ddd;
+.sidebar .nav-link:hover {
+  background-color: #333;
 }
 
-/* Estilo do conteúdo principal */
-.content {
-  margin-left: 250px; /* Deixa espaço para o menu lateral */
+.collapse .nav-link {
+  padding-left: 2rem; /* Indentação para submenus */
+}
+
+.sidebar .collapse .nav-link:hover {
+  background-color: #444;
+}
+
+/* Corrige o estilo do Financeiro expandido */
+.sidebar .collapse.show {
+  background-color: #111; /* Fundo ligeiramente diferente */
 }

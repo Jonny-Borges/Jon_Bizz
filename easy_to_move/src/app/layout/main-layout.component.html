@@ -1,15 +1,48 @@
 <div class="d-flex">
-  <!-- Menu Lateral -->
-  <div class="sidebar bg-dark text-white p-4">
-    <h3>Menu</h3>
-    <ul>
-      <li><a routerLink="/home">Home</a></li>
-      <li><a routerLink="/estoque">Estoque</a></li>
-      <li><a routerLink="/usuario">Usuarios</a></li>
+  <!-- Sidebar / Menu lateral -->
+  <nav class="sidebar">
+    <h2>Menu</h2>
+    <ul class="nav flex-column">
+
+      <!-- Home -->
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/home">Home</a>
+      </li>
+
+      <!-- Usuário -->
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/usuario">Usuário</a>
+      </li>
+
+      <!-- Estoque -->
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/estoque">Estoque</a>
+      </li>
+
+      <!-- Financeiro Expansível -->
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          href="#!"
+          data-bs-toggle="collapse"
+          data-bs-target="#financeiroMenu"
+          aria-expanded="false"
+        >
+          Financeiro
+        </a>
+        <ul id="financeiroMenu" class="collapse list-unstyled">
+          <li>
+            <a class="nav-link" routerLink="/financeiro/recebimentos">
+              <i class="bi bi-cash-stack me-2"></i> Recebimentos
+            </a>
+          </li>
+        </ul>
+      </li>
     </ul>
-  </div>
+  </nav>
+
   <!-- Conteúdo Principal -->
-  <div class="content flex-grow-1 p-4">
+  <div class="content p-4 w-100">
     <router-outlet></router-outlet>
   </div>
 </div>
