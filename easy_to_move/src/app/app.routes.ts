@@ -6,6 +6,7 @@ import { UsuarioComponent } from './features/usuario/usuario.component';
 import { EstoqueComponent } from './features/estoque/estoque.component';
 import { RecebimentosComponent } from './features/financeiro/recebimentos/recebimentos.component';
 import { ClientesComponent } from './features/clientes/clientes.component';
+import { FornecedorComponent } from './features/fornecedor/fornecedor.component';
 
 export const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -19,6 +20,7 @@ export const routes: Routes = [
       { path: 'estoque', component: EstoqueComponent },
       { path: 'clientes', component: ClientesComponent },
       { path: 'financeiro/recebimentos', component: RecebimentosComponent },
+      { path: 'fornecedores', component: FornecedorComponent }, 
     ],
   },
   { path: '**', redirectTo: '/login' },
