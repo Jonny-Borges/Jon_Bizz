@@ -5,6 +5,7 @@ import { HomeComponent } from './features/home/home.component';
 import { UsuarioComponent } from './features/usuario/usuario.component';
 import { EstoqueComponent } from './features/estoque/estoque.component';
 import { RecebimentosComponent } from './features/financeiro/recebimentos/recebimentos.component';
+import { ClientesComponent } from './features/clientes/clientes.component';
 
 export const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -16,8 +17,7 @@ export const routes: Routes = [
       { path: 'home', component: HomeComponent },
       { path: 'usuario', component: UsuarioComponent },
       { path: 'estoque', component: EstoqueComponent },
-
-      // Rota para Recebimentos
+      { path: 'clientes', component: ClientesComponent },
       { path: 'financeiro/recebimentos', component: RecebimentosComponent },
     ],
   },
