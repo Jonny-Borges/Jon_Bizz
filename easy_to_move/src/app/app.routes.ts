@@ -20,7 +20,7 @@ export const routes: Routes = [
       { path: 'estoque', component: EstoqueComponent },
       { path: 'clientes', component: ClientesComponent },
       { path: 'financeiro/recebimentos', component: RecebimentosComponent },
-      { path: 'fornecedores', component: FornecedorComponent }, 
+      { path: 'fornecedor', component: FornecedorComponent }, 
     ],
   },
   { path: '**', redirectTo: '/login' },
