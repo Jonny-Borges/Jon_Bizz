@@ -1,73 +1,122 @@
-# Sistema de Gestão Empresarial - Projeto Jonny Borges
+# Easy to Move - Sistema de Gestão Empresarial
 
-## 📋 Descrição
-O **Sistema de Gestão Empresarial** é uma aplicação desktop simples e eficiente, desenvolvida para atender pequenas e médias empresas. Ele centraliza as operações fundamentais de gerenciamento, como controle de estoque, registro de vendas e organização de dados empresariais, com foco em praticidade e usabilidade.
+## Visão Geral
+Easy to Move é um sistema de gestão empresarial desenvolvido em Angular 18, Node.js e Spring Boot. Ele oferece funcionalidades para gerenciamento de clientes, fornecedores, estoque, financeiro e vendas. O projeto foi estruturado para atender negócios de diferentes segmentos, com foco em simplicidade e eficiência.
 
-O sistema foi desenvolvido utilizando as seguintes tecnologias:
-- **Frontend**: Angular
-- **Backend**: Java com Spring Boot
-- **Desktop**: Electron
+---
 
-## 🎯 Objetivo
-Criar uma solução completa e funcional para empresas que buscam gerenciar seus processos operacionais de forma ágil e prática, sem a necessidade de sistemas complexos.
+## Estrutura de Pastas
 
-### Principais Funcionalidades:
-- **Gestão de Estoque**: Controle e organização de produtos, com atualização automática.
-- **Registro de Vendas**: Cadastro e acompanhamento de vendas realizadas.
-- **Gerenciamento de Clientes e Fornecedores**: Centralização de informações relevantes.
-- **Interface Simples e Intuitiva**: Foco na experiência do usuário.
+```
+- src/
+  - app/
+    - core/
+      - auth/
+        - componentes/login/
+          - login.component.html
+          - login.component.ts
+      - menu/
+        - menu.component.html
+        - menu.component.ts
+    - features/
+      - clientes/
+      - estoque/
+      - financeiro/
+      - fornecedor/
+      - home/
+      - usuario/
+      - vendas/
+        - componentes/
+          - vendas/
+            - vendas.component.html
+            - vendas.component.ts
+          - vendas-lanchonete/
+            - vendas-lanchonete.component.html
+            - vendas-lanchonete.component.ts
+  - shared/
+    - app.component.html
+    - app.component.ts
+  - app.routes.ts
+  - styles.scss
+```
 
-## 🚀 Tecnologias Utilizadas
-- **Angular**: Para a criação de uma interface moderna e responsiva.
-- **Java com Spring Boot**: Backend robusto e confiável.
-- **Electron**: Transformação da aplicação web em uma solução desktop multiplataforma.
+---
 
-## 🛠️ Status do Projeto
-- Em desenvolvimento.
+## Funcionalidades
 
-## 🔗 Como Contribuir
-Caso tenha sugestões ou queira colaborar com o projeto, fique à vontade para enviar um pull request ou abrir uma issue.
+### 1. Gestão de Clientes
+- Cadastro, edição e exclusão de clientes.
+- Visualização de lista de clientes.
 
-## 📞 Contato
-- Autor: Jonny Borges da Silviera
-- Email: [jonnyborges@hotmail]
+### 2. Gestão de Fornecedores
+- Cadastro, edição e exclusão de fornecedores.
+- Gerenciamento de informações de contato e produtos fornecidos.
 
-# 📑 O que foi feito até agora
+### 3. Estoque
+- Controle de produtos em estoque.
+- Atualização de quantidades e visualização de detalhes.
 
-## 1. Tela de Login
-A tela de login foi implementada, onde o usuário pode inserir o e-mail e senha para acessar o sistema.
+### 4. Vendas
+#### **Vendas Genéricas**
+- Registro de vendas rápidas sem imposto ou carrinho.
+- Exibição de produtos adicionados à venda com total calculado.
 
-## 2. Estrutura do Projeto
+#### **Vendas para Lanchonetes**
+- Criação e controle de mesas.
+- Adição de produtos por mesa.
+- Subtotais e gerenciamento individualizado por mesa.
 
-### Layout Principal
-- **Menu Lateral**: O layout principal da aplicação foi criado com um menu lateral que permite ao usuário navegar entre as funcionalidades do sistema. O menu contém os seguintes links:
-  - **Home**: Página de boas-vindas.
-  - **Estoque**: Página para gestão do estoque.
-  - **Produtos**: (Removido, as informações de produto foram integradas diretamente ao estoque).
-  
-### 3. Páginas Desenvolvidas
-- **Página Home**: Página inicial de boas-vindas com mensagens de introdução.
-- **Página de Estoque**: Página para cadastrar, editar e listar itens do estoque. Cada item contém informações como preço, descrição e código de barras.
+### 5. Financeiro
+- Planejamento e controle de entradas e saídas financeiras.
+- Relatórios de vendas e despesas (em desenvolvimento).
 
-## 4. Funcionalidade de Estoque
-- **Cadastro de Produtos no Estoque**: A página de estoque permite cadastrar itens, incluindo campos como **preço**, **descrição**, e **código de barras**.
-- **Listagem de Itens no Estoque**: Exibição de todos os itens cadastrados, com suas respectivas informações.
+---
 
-## 5. Rotas
-As rotas do Angular estão configuradas da seguinte forma:
-- **/login**: Acessa a tela de login.
-- **/**: Página inicial, redireciona para a página de **Estoque**.
-- **/estoque**: Página onde os itens do estoque são cadastrados e listados.
+## Tecnologias Utilizadas
+- **Frontend:** Angular 18 (standalone components) e Bootstrap.
+- **Backend:** Node.js e Spring Boot.
+- **Banco de Dados:** Em desenvolvimento.
 
-## 🔧 Instruções para rodar o projeto
+---
 
-### Requisitos
-- **Node.js** e **npm** (para o frontend Angular)
-- **Java** e **Spring Boot** (para o backend)
-- **Electron** (para a versão desktop, se necessário)
+## Configuração do Projeto
 
-### Para rodar o projeto localmente:
-1. Clone o repositório.
-2. Navegue até a pasta do frontend e instale as dependências:
+### Pré-requisitos
+- Node.js (v20.18.0 ou superior).
+- Angular CLI (v18.2.12).
+
+### Instalação
+1. Clone o repositório:
+   ```bash
+   git clone <URL_DO_REPOSITORIO>
+   ```
+
+2. Instale as dependências:
    ```bash
    npm install
+   ```
+
+3. Execute o servidor de desenvolvimento:
+   ```bash
+   ng serve
+   ```
+
+4. Acesse em: [http://localhost:4200](http://localhost:4200).
+
+---
+
+## Próximos Passos
+
+1. Implementar o **fechamento de mesas** na funcionalidade de vendas-lanchonete.
+2. Desenvolver o **histórico de vendas** com registros detalhados.
+3. Criar relatórios financeiros exportáveis (PDF/Excel).
+
+---
+
+## Contribuidores
+- **Jonny Borges da Silviera** - Desenvolvedor Full Stack Junior.
+
+---
+
+## Licença
+Este projeto está sob a licença MIT.
