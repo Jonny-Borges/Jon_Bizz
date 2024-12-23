@@ -8,6 +8,7 @@ import { RecebimentosComponent } from './features/financeiro/recebimentos/recebi
 import { ClientesComponent } from './features/clientes/clientes.component';
 import { FornecedorComponent } from './features/fornecedor/fornecedor.component';
 import { VendasComponent } from './features/venda/componentes/vendas/vendas.component';
+import { VendasLanchoneteComponent } from './features/venda/componentes/vendas-lanchonete/vendas-lanchonete.component';
 
 export const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -23,6 +24,7 @@ export const routes: Routes = [
       { path: 'financeiro/recebimentos', component: RecebimentosComponent },
       { path: 'fornecedor', component: FornecedorComponent }, 
       { path: 'vendas', component: VendasComponent }, 
+      { path: 'vendas-lanchonete', component: VendasLanchoneteComponent }, 
     ],
   },
   { path: '**', redirectTo: '/login' },

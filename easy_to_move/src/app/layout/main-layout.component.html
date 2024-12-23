@@ -21,13 +21,7 @@
 
       <!-- Financeiro Expansível -->
       <li class="nav-item">
-        <a
-          class="nav-link"
-          href="#!"
-          data-bs-toggle="collapse"
-          data-bs-target="#financeiroMenu"
-          aria-expanded="false"
-        >
+        <a class="nav-link" href="#!" data-bs-toggle="collapse" data-bs-target="#financeiroMenu" aria-expanded="false">
           Financeiro
         </a>
         <ul id="financeiroMenu" class="collapse list-unstyled">
@@ -38,12 +32,12 @@
           </li>
         </ul>
       </li>
-      
+
       <!-- Clientes -->
-      
+
       <li class="nav-item">
         <a class="nav-link" routerLink="/clientes" routerLinkActive="active">
-           Clientes
+          Clientes
         </a>
       </li>
 
@@ -56,10 +50,20 @@
       <!-- Vendas -->
 
       <li class="nav-item">
-        <a class="nav-link text-white" routerLink="/vendas">Vendas</a>
+        <a class="nav-link" href="#!" data-bs-toggle="collapse" data-bs-target="#vendaMenu" aria-expanded="false">
+          Painel de Vendas
+        </a>
+        <ul id="vendaMenu" class="collapse list-unstyled">
+          <li>
+            <a class="nav-link" routerLink="/vendas">
+              <i class="bi bi-credit-card me-2"></i> Venda Generica
+            </a>  
+            <a class="nav-link" routerLink="/vendas-lanchonete">
+              <i class="bi bi-credit-card me-2"></i> Venda Lanchonte
+            </a>
+          </li>
+        </ul>
       </li>
-
-
     </ul>
   </nav>
 
