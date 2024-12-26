@@ -1,14 +1,6 @@
 import { Routes } from '@angular/router';
 import { LoginComponent } from './core/auth/componentes/login/login.component';
 import { MainLayoutComponent } from './layout/main-layout.component';
-import { HomeComponent } from './features/home/home.component';
-import { UsuarioComponent } from './features/usuario/usuario.component';
-import { EstoqueComponent } from './features/estoque/estoque.component';
-import { RecebimentosComponent } from './features/financeiro/recebimentos/recebimentos.component';
-import { ClientesComponent } from './features/clientes/clientes.component';
-import { FornecedorComponent } from './features/fornecedor/fornecedor.component';
-import { VendasComponent } from './features/venda/componentes/vendas/vendas.component';
-import { VendasLanchoneteComponent } from './features/venda/componentes/vendas-lanchonete/vendas-lanchonete.component';
 
 export const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -16,15 +8,55 @@ export const routes: Routes = [
     path: '',
     component: MainLayoutComponent,
     children: [
-      { path: '', redirectTo: '/home', pathMatch: 'full' },
-      { path: 'home', component: HomeComponent },
-      { path: 'usuario', component: UsuarioComponent },
-      { path: 'estoque', component: EstoqueComponent },
-      { path: 'clientes', component: ClientesComponent },
-      { path: 'financeiro/recebimentos', component: RecebimentosComponent },
-      { path: 'fornecedor', component: FornecedorComponent }, 
-      { path: 'vendas', component: VendasComponent }, 
-      { path: 'vendas-lanchonete', component: VendasLanchoneteComponent }, 
+      { path: '', redirectTo: 'home', pathMatch: 'full' },
+      {
+        path: 'home',
+        loadComponent: () =>
+          import('./features/home/home.component').then((m) => m.HomeComponent),
+      },
+      {
+        path: 'usuario',
+        loadComponent: () =>
+          import('./features/usuario/usuario.component').then((m) => m.UsuarioComponent),
+      },
+      {
+        path: 'estoque',
+        loadComponent: () =>
+          import('./features/estoque/estoque.component').then((m) => m.EstoqueComponent),
+      },
+      {
+        path: 'clientes',
+        loadComponent: () =>
+          import('./features/clientes/clientes.component').then((m) => m.ClientesComponent),
+      },
+      {
+        path: 'financeiro/recebimentos',
+        loadComponent: () =>
+          import('./features/financeiro/recebimentos/recebimentos.component').then(
+            (m) => m.RecebimentosComponent
+          ),
+      },
+      {
+        path: 'fornecedor',
+        loadComponent: () =>
+          import('./features/fornecedor/fornecedor.component').then(
+            (m) => m.FornecedorComponent
+          ),
+      },
+      {
+        path: 'vendas',
+        loadComponent: () =>
+          import('./features/venda/componentes/vendas/vendas.component').then(
+            (m) => m.VendasComponent
+          ),
+      },
+      {
+        path: 'vendas-lanchonete',
+        loadComponent: () =>
+          import('./features/venda/componentes/vendas-lanchonete/vendas-lanchonete.component').then(
+            (m) => m.VendasLanchoneteComponent
+          ),
+      },
     ],
   },
   { path: '**', redirectTo: '/login' },

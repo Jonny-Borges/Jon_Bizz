@@ -1,24 +1,32 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+
 
 @Component({
   selector: 'app-login',
   standalone: true,
   imports: [
-    FormsModule 
+    FormsModule,
+    CommonModule 
   ],
   templateUrl: './login.component.html',  
   styleUrl: './login.component.scss'
 })
 export class LoginComponent {
+  
   email: string = '';
   password: string = '';
+  errorMessage: string = '';
 
-  // Método para tratar o login
   login() {
-    console.log('Email:', this.email);
-    console.log('Senha:', this.password);
-    // Aqui futuramente você chamará o serviço para autenticação
-  }
 
+    if (this.email === 'admin@teste.com' && this.password === '123456') {
+      console.log('Login bem-sucedido!');
+      this.errorMessage = '';
+    } else {
+      this.errorMessage = 'Email ou senha inválidos.';
+    }
+
+  }
 }
