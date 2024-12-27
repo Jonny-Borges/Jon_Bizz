@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { AuthService } from '../../../auth.service';
 
 
+
 @Component({
   selector: 'app-login',
   standalone: true,
@@ -21,15 +22,18 @@ export class LoginComponent {
   password: string = '';
   errorMessage: string = '';
 
+
+
   constructor(private authService: AuthService, private router: Router) {}
 
-  login() {
-    if (this.email === 'admin@teste.com' && this.password === '123456') {
-      console.log('Login bem-sucedido!');
-      this.errorMessage = '';
+  handleLogin() {
+    if (this.authService.login(this.email, this.password)) {
+      this.errorMessage = ''; // Limpa a mensagem de erro se o login foi bem-sucedido
       this.router.navigate(['/home']); // Redireciona para a rota "/home"
     } else {
-      this.errorMessage = 'Email ou senha inválidos.';
+      this.errorMessage = 'Email ou senha inválidos.'; // Mostra a mensagem de erro
     }
   }
+
+ 
 }
