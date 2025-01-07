@@ -2,7 +2,6 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
-
 @Component({
   selector: 'app-usuario',
   standalone: true,
@@ -14,62 +13,69 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./usuario.component.scss'],
 })
 export class UsuarioComponent {
-  isEditing: any;
-  closeModal() {
-    throw new Error('Method not implemented.');
-  }
   usuarios: any[] = []; // Lista de usuários (será preenchida com os dados do backend)
-  modalAberto: boolean = false;
+  modalAberto: boolean = false; // Controle do modal de cadastro/edição
+  modalExclusaoAberto: boolean = false; // Controle do modal de confirmação de exclusão
+  isEditing: boolean = false; // Verifica se é uma edição
+  usuarioAtual: any = {}; // Usuário sendo editado ou criado
+  usuarioParaExcluir: any = null; // Usuário a ser excluído
 
-  // Dados do novo usuário
-  novoUsuario = {
-    nome: '',
-    email: '',
-    senha: '',
-  };
-
-  usuario = {
-    email: '',
-    nome: '',
-    senha: ''
-  };
-
+  // Abrir modal de cadastro
   abrirModal() {
-    this.novoUsuario = { nome: '', email: '', senha: '' }; // Reseta os campos do formulário
+    this.usuarioAtual = { nome: '', email: '', senha: '' }; // Reseta os campos
+    this.isEditing = false;
     this.modalAberto = true;
   }
 
+  // Abrir modal de edição
+  abrirModalEdicao(usuario: any) {
+    this.usuarioAtual = { ...usuario }; // Preenche com os dados do usuário selecionado
+    this.isEditing = true;
+    this.modalAberto = true;
+  }
+
+  // Fechar modal de cadastro/edição
   fecharModal() {
     this.modalAberto = false;
   }
 
+  // Salvar usuário (criação ou edição)
   salvarUsuario() {
-    if (this.novoUsuario.nome && this.novoUsuario.email && this.novoUsuario.senha) {
-      this.usuarios.push({ ...this.novoUsuario }); // Adiciona o novo usuário na lista local (simulação)
+    if (this.usuarioAtual.nome && this.usuarioAtual.email) {
+      if (this.isEditing) {
+        const index = this.usuarios.findIndex(u => u === this.usuarioAtual);
+        if (index !== -1) {
+          this.usuarios[index] = { ...this.usuarioAtual }; // Atualiza o usuário na lista
+        }
+      } else {
+        this.usuarios.push({ ...this.usuarioAtual }); // Adiciona o novo usuário
+      }
       this.fecharModal();
-      console.log('Usuário salvo:', this.novoUsuario);
+      console.log(this.isEditing ? 'Usuário editado:' : 'Usuário criado:', this.usuarioAtual);
     }
   }
 
-  editarUsuario(usuario: any) {
-    console.log('Editar:', usuario);
-    // Abrir o modal com os dados do usuário a ser editado
+  // Abrir modal de confirmação de exclusão
+  confirmarExclusao(usuario: any) {
+    this.usuarioParaExcluir = usuario;
+    this.modalExclusaoAberto = true;
   }
 
-  excluirUsuario(usuario: any) {
-    const index = this.usuarios.indexOf(usuario);
-    if (index > -1) {
-      this.usuarios.splice(index, 1);
-      console.log('Usuário excluído:', usuario);
+  // Fechar modal de confirmação de exclusão
+  fecharModalExclusao() {
+    this.modalExclusaoAberto = false;
+    this.usuarioParaExcluir = null;
+  }
+
+  // Excluir usuário
+  excluirUsuario() {
+    if (this.usuarioParaExcluir) {
+      const index = this.usuarios.indexOf(this.usuarioParaExcluir);
+      if (index > -1) {
+        this.usuarios.splice(index, 1); // Remove o usuário da lista
+        console.log('Usuário excluído:', this.usuarioParaExcluir);
+      }
+      this.fecharModalExclusao();
     }
   }
-
-  saveUser() {
-    if (this.usuario.email && this.usuario.nome && this.usuario.senha) {
-      console.log('Usuário salvo:', this.usuario);
-      this.closeModal();
-      // chamar o backend para salvar no banco
-    }
-  }
-
 }
