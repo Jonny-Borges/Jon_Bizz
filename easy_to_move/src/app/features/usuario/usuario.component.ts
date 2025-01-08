@@ -13,6 +13,7 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./usuario.component.scss'],
 })
 export class UsuarioComponent {
+
   usuarios: any[] = []; // Lista de usuários (será preenchida com os dados do backend)
   modalAberto: boolean = false; // Controle do modal de cadastro/edição
   modalExclusaoAberto: boolean = false; // Controle do modal de confirmação de exclusão
@@ -43,17 +44,25 @@ export class UsuarioComponent {
   salvarUsuario() {
     if (this.usuarioAtual.nome && this.usuarioAtual.email) {
       if (this.isEditing) {
-        const index = this.usuarios.findIndex(u => u === this.usuarioAtual);
+        // Encontra o índice do usuário com base no ID
+        const index = this.usuarios.findIndex(u => u.id === this.usuarioAtual.id);
         if (index !== -1) {
           this.usuarios[index] = { ...this.usuarioAtual }; // Atualiza o usuário na lista
         }
       } else {
-        this.usuarios.push({ ...this.usuarioAtual }); // Adiciona o novo usuário
+        // Gera um ID temporário para novos usuários
+        const novoUsuario = { ...this.usuarioAtual, id: Date.now() };
+        this.usuarios.push(novoUsuario); // Adiciona o novo usuário
       }
+  
+      // Atualiza a referência do array para forçar a detecção de mudanças
+      this.usuarios = [...this.usuarios];
       this.fecharModal();
+  
       console.log(this.isEditing ? 'Usuário editado:' : 'Usuário criado:', this.usuarioAtual);
     }
   }
+  
 
   // Abrir modal de confirmação de exclusão
   confirmarExclusao(usuario: any) {
