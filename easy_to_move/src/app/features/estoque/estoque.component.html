@@ -1,5 +1,4 @@
 <div class="container mt-4">
-  
   <!-- Filtros de busca -->
   <div class="card mb-4">
     <div class="card-header">Filtros de Busca</div>
@@ -7,26 +6,74 @@
       <form class="row g-3">
         <div class="col-md-3">
           <label for="codigoInterno" class="form-label">Código Interno</label>
-          <input type="text" class="form-control" id="codigoInterno" placeholder="Digite o código">
+          <input
+            type="text"
+            class="form-control"
+            id="codigoInterno"
+            placeholder="Digite o código"
+            [(ngModel)]="filtros.codigoInterno"
+            name="codigoInterno"
+          />
         </div>
         <div class="col-md-3">
           <label for="descricao" class="form-label">Descrição</label>
-          <input type="text" class="form-control" id="descricao" placeholder="Digite a descrição">
+          <input
+            type="text"
+            class="form-control"
+            id="descricao"
+            placeholder="Digite a descrição"
+            [(ngModel)]="filtros.descricao"
+            name="descricao"
+          />
         </div>
         <div class="col-md-3">
           <label for="marca" class="form-label">Marca</label>
-          <input type="text" class="form-control" id="marca" placeholder="Digite a marca">
+          <input
+            type="text"
+            class="form-control"
+            id="marca"
+            placeholder="Digite a marca"
+            [(ngModel)]="filtros.marca"
+            name="marca"
+          />
         </div>
         <div class="col-md-3">
           <label for="fornecedor" class="form-label">Fornecedor</label>
-          <input type="text" class="form-control" id="fornecedor" placeholder="Digite o fornecedor">
+          <input
+            type="text"
+            class="form-control"
+            id="fornecedor"
+            placeholder="Digite o fornecedor"
+            [(ngModel)]="filtros.fornecedor"
+            name="fornecedor"
+          />
         </div>
         <div class="col-md-3">
           <label for="codigoBarras" class="form-label">Código de Barras</label>
-          <input type="text" class="form-control" id="codigoBarras" placeholder="Digite o código de barras">
+          <input
+            type="text"
+            class="form-control"
+            id="codigoBarras"
+            placeholder="Digite o código de barras"
+            [(ngModel)]="filtros.codigoBarras"
+            name="codigoBarras"
+          />
         </div>
         <div class="col-md-12 text-end">
-          <button type="button" class="btn btn-primary">Buscar</button>
+          <button
+            type="button"
+            class="btn btn-primary"
+            (click)="filtrarProdutos()"
+          >
+            Buscar
+          </button>
+          <button
+            type="button"
+            class="btn btn-secondary ms-2"
+            (click)="limparFiltros()"
+          >
+            Limpar
+          </button>
         </div>
       </form>
     </div>
@@ -44,6 +91,7 @@
             <th>Referência</th>
             <th>Descrição</th>
             <th>Marca</th>
+            <th>Fornecedor</th>
             <th>Cód. Barras</th>
             <th>Grade</th>
             <th>Quantidade</th>
@@ -53,24 +101,23 @@
           </tr>
         </thead>
         <tbody>
-          <!-- Exemplo de dados -->
-          <tr>
-            <td>1</td>
-            <td>1234</td>
-            <td>Ref-001</td>
-            <td>Produto Exemplo</td>
-            <td>Marca A</td>
-            <td>7891234567890</td>
-            <td>Única</td>
-            <td>50</td>
-            <td>R$ 100,00</td>
-            <td>R$ 70,00</td>
-            <td>
-              <button class="btn btn-warning btn-sm">Editar</button>
+          <tr *ngFor="let produto of produtosFiltrados; let i = index">
+            <td>{{ i + 1 }}</td>
+            <td>{{ produto.codigo }}</td>
+            <td>{{ produto.referencia }}</td>
+            <td>{{ produto.descricao }}</td>
+            <td>{{ produto.marca }}</td>
+            <td>{{ produto.fornecedor }}</td>
+            <td>{{ produto.codigoBarras }}</td>
+            <td>{{ produto.grade }}</td>
+            <td>{{ produto.quantidade }}</td>
+            <td>{{ produto.precoVenda | currency: 'BRL' }}</td>
+            <td>{{ produto.precoCusto | currency: 'BRL' }}</td>
+            <div class="d-flex">
+              <button class="btn btn-warning btn-sm me-2">Editar</button>
               <button class="btn btn-danger btn-sm">Excluir</button>
-            </td>
+            </div>
           </tr>
-          <!-- Mais linhas de exemplo podem ser adicionadas aqui -->
         </tbody>
       </table>
     </div>
