@@ -6,72 +6,34 @@
       <form class="row g-3">
         <div class="col-md-3">
           <label for="codigoInterno" class="form-label">Código Interno</label>
-          <input
-            type="text"
-            class="form-control"
-            id="codigoInterno"
-            placeholder="Digite o código"
-            [(ngModel)]="filtros.codigoInterno"
-            name="codigoInterno"
-          />
+          <input type="text" class="form-control" id="codigoInterno" placeholder="Digite o código"
+            [(ngModel)]="filtros.codigoInterno" name="codigoInterno" />
         </div>
         <div class="col-md-3">
           <label for="descricao" class="form-label">Descrição</label>
-          <input
-            type="text"
-            class="form-control"
-            id="descricao"
-            placeholder="Digite a descrição"
-            [(ngModel)]="filtros.descricao"
-            name="descricao"
-          />
+          <input type="text" class="form-control" id="descricao" placeholder="Digite a descrição"
+            [(ngModel)]="filtros.descricao" name="descricao" />
         </div>
         <div class="col-md-3">
           <label for="marca" class="form-label">Marca</label>
-          <input
-            type="text"
-            class="form-control"
-            id="marca"
-            placeholder="Digite a marca"
-            [(ngModel)]="filtros.marca"
-            name="marca"
-          />
+          <input type="text" class="form-control" id="marca" placeholder="Digite a marca" [(ngModel)]="filtros.marca"
+            name="marca" />
         </div>
         <div class="col-md-3">
           <label for="fornecedor" class="form-label">Fornecedor</label>
-          <input
-            type="text"
-            class="form-control"
-            id="fornecedor"
-            placeholder="Digite o fornecedor"
-            [(ngModel)]="filtros.fornecedor"
-            name="fornecedor"
-          />
+          <input type="text" class="form-control" id="fornecedor" placeholder="Digite o fornecedor"
+            [(ngModel)]="filtros.fornecedor" name="fornecedor" />
         </div>
         <div class="col-md-3">
           <label for="codigoBarras" class="form-label">Código de Barras</label>
-          <input
-            type="text"
-            class="form-control"
-            id="codigoBarras"
-            placeholder="Digite o código de barras"
-            [(ngModel)]="filtros.codigoBarras"
-            name="codigoBarras"
-          />
+          <input type="text" class="form-control" id="codigoBarras" placeholder="Digite o código de barras"
+            [(ngModel)]="filtros.codigoBarras" name="codigoBarras" />
         </div>
         <div class="col-md-12 text-end">
-          <button
-            type="button"
-            class="btn btn-primary"
-            (click)="filtrarProdutos()"
-          >
+          <button type="button" class="btn btn-primary" (click)="filtrarProdutos()">
             Buscar
           </button>
-          <button
-            type="button"
-            class="btn btn-secondary ms-2"
-            (click)="limparFiltros()"
-          >
+          <button type="button" class="btn btn-secondary ms-2" (click)="limparFiltros()">
             Limpar
           </button>
         </div>
@@ -113,13 +75,16 @@
             <td>{{ produto.quantidade }}</td>
             <td>{{ produto.precoVenda | currency: 'BRL' }}</td>
             <td>{{ produto.precoCusto | currency: 'BRL' }}</td>
-            <div class="d-flex">
-              <button class="btn btn-warning btn-sm me-2">Editar</button>
-              <button class="btn btn-danger btn-sm">Excluir</button>
-            </div>
+            <td>
+              <div class="d-flex">
+                <button class="btn btn-warning btn-sm me-2" (click)="abrirModalEdicao(produto)">Editar</button>
+                <button class="btn btn-danger btn-sm" (click)="confirmarExclusao(produto)">Excluir</button>
+              </div>
+            </td>
           </tr>
         </tbody>
       </table>
     </div>
   </div>
+  
 </div>
