@@ -1,59 +1,260 @@
-<div class="container mt-4">
-    <!-- Título da página -->
-    <h2>Venda Genérica</h2>
-  
-    <!-- Campo de busca de produto -->
-    <div class="row mt-3">
-      <div class="col-md-8">
+<div class="container-fluid mt-4 d-flex justify-content-center">
+  <div class="w-75">
+    <!-- Campo de pesquisa -->
+    <div class="row mb-3">
+      <div class="col-md-10">
         <input 
           type="text" 
           class="form-control" 
           placeholder="Digite o código ou nome do produto"
         />
       </div>
-      <div class="col-md-4">
-        <button class="btn btn-primary w-100">Adicionar Produto</button>
+      <div class="col-md-2">
+        <button class="btn btn-primary w-100">Pesquisar</button>
       </div>
     </div>
-  
-    <!-- Tabela de produtos adicionados -->
-    <div class="row mt-4">
-      <div class="col">
-        <table class="table table-striped">
-          <thead>
-            <tr>
-              <th>Produto</th>
-              <th>Quantidade</th>
-              <th>Preço Unitário</th>
-              <th>Total</th>
-              <th>Ações</th>
-            </tr>
-          </thead>
-          <tbody>
-            <!-- Linhas de exemplo -->
-            <tr>
-              <td>Produto Exemplo</td>
-              <td>1</td>
-              <td>R$ 10,00</td>
-              <td>R$ 10,00</td>
-              <td>
-                <button class="btn btn-sm btn-danger">Remover</button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  
-    <!-- Resumo da venda -->
-    <div class="row mt-4">
+
+    <!-- Área de produtos e valores -->
+    <div class="row">
+      <!-- Lista de produtos -->
       <div class="col-md-8">
-        <button class="btn btn-danger">Limpar Venda</button>
+        <div 
+          class="border rounded p-3 bg-light"
+          style="height: 800px; overflow-y: auto;"
+        >
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Produto</th>
+                <th>Quantidade</th>
+                <th>Preço Unitário</th>
+                <th>Total</th>
+                <th>Ações</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Itens adicionados -->
+              <tr>
+                <td>Produto 1</td>
+                <td>2</td>
+                <td>R$ 20,00</td>
+                <td>R$ 40,00</td>
+                <td>
+                  <button class="btn btn-sm btn-danger">Remover</button>
+                </td>
+              </tr>
+              <tr>
+                <td>Produto 2</td>
+                <td>1</td>
+                <td>R$ 15,00</td>
+                <td>R$ 15,00</td>
+                <td>
+                  <button class="btn btn-sm btn-danger">Remover</button>
+                </td>
+              </tr>
+              <tr>
+                <td>Produto 3</td>
+                <td>5</td>
+                <td>R$ 10,00</td>
+                <td>R$ 50,00</td>
+                <td>
+                  <button class="btn btn-sm btn-danger">Remover</button>
+                </td>
+              </tr>
+              <tr>
+                <td>Produto 4</td>
+                <td>3</td>
+                <td>R$ 30,00</td>
+                <td>R$ 90,00</td>
+                <td>
+                  <button class="btn btn-sm btn-danger">Remover</button>
+                </td>
+              </tr>
+              <tr>
+                <td>Produto 4</td>
+                <td>3</td>
+                <td>R$ 30,00</td>
+                <td>R$ 90,00</td>
+                <td>
+                  <button class="btn btn-sm btn-danger">Remover</button>
+                </td>
+              </tr>
+              <tr>
+                <td>Produto 4</td>
+                <td>3</td>
+                <td>R$ 30,00</td>
+                <td>R$ 90,00</td>
+                <td>
+                  <button class="btn btn-sm btn-danger">Remover</button>
+                </td>
+              </tr>
+              <tr>
+                <td>Produto 4</td>
+                <td>3</td>
+                <td>R$ 30,00</td>
+                <td>R$ 90,00</td>
+                <td>
+                  <button class="btn btn-sm btn-danger">Remover</button>
+                </td>
+              </tr>
+              <tr>
+                <td>Produto 4</td>
+                <td>3</td>
+                <td>R$ 30,00</td>
+                <td>R$ 90,00</td>
+                <td>
+                  <button class="btn btn-sm btn-danger">Remover</button>
+                </td>
+              </tr>
+              <tr>
+                <td>Produto 4</td>
+                <td>3</td>
+                <td>R$ 30,00</td>
+                <td>R$ 90,00</td>
+                <td>
+                  <button class="btn btn-sm btn-danger">Remover</button>
+                </td>
+              </tr>
+              <tr>
+                <td>Produto 4</td>
+                <td>3</td>
+                <td>R$ 30,00</td>
+                <td>R$ 90,00</td>
+                <td>
+                  <button class="btn btn-sm btn-danger">Remover</button>
+                </td>
+              </tr>
+              <tr>
+                <td>Produto 4</td>
+                <td>3</td>
+                <td>R$ 30,00</td>
+                <td>R$ 90,00</td>
+                <td>
+                  <button class="btn btn-sm btn-danger">Remover</button>
+                </td>
+              </tr>
+              <tr>
+                <td>Produto 4</td>
+                <td>3</td>
+                <td>R$ 30,00</td>
+                <td>R$ 90,00</td>
+                <td>
+                  <button class="btn btn-sm btn-danger">Remover</button>
+                </td>
+              </tr>
+              <tr>
+                <td>Produto 4</td>
+                <td>3</td>
+                <td>R$ 30,00</td>
+                <td>R$ 90,00</td>
+                <td>
+                  <button class="btn btn-sm btn-danger">Remover</button>
+                </td>
+              </tr>
+              <tr>
+                <td>Produto 4</td>
+                <td>3</td>
+                <td>R$ 30,00</td>
+                <td>R$ 90,00</td>
+                <td>
+                  <button class="btn btn-sm btn-danger">Remover</button>
+                </td>
+              </tr>
+              <tr>
+                <td>Produto 4</td>
+                <td>3</td>
+                <td>R$ 30,00</td>
+                <td>R$ 90,00</td>
+                <td>
+                  <button class="btn btn-sm btn-danger">Remover</button>
+                </td>
+              </tr>
+              <tr>
+                <td>Produto 4</td>
+                <td>3</td>
+                <td>R$ 30,00</td>
+                <td>R$ 90,00</td>
+                <td>
+                  <button class="btn btn-sm btn-danger">Remover</button>
+                </td>
+              </tr>
+              <tr>
+                <td>Produto 4</td>
+                <td>3</td>
+                <td>R$ 30,00</td>
+                <td>R$ 90,00</td>
+                <td>
+                  <button class="btn btn-sm btn-danger">Remover</button>
+                </td>
+              </tr>
+              <tr>
+                <td>Produto 4</td>
+                <td>3</td>
+                <td>R$ 30,00</td>
+                <td>R$ 90,00</td>
+                <td>
+                  <button class="btn btn-sm btn-danger">Remover</button>
+                </td>
+              </tr>
+              <tr>
+                <td>Produto 4</td>
+                <td>3</td>
+                <td>R$ 30,00</td>
+                <td>R$ 90,00</td>
+                <td>
+                  <button class="btn btn-sm btn-danger">Remover</button>
+                </td>
+              </tr>
+              <tr>
+                <td>Produto 4</td>
+                <td>3</td>
+                <td>R$ 30,00</td>
+                <td>R$ 90,00</td>
+                <td>
+                  <button class="btn btn-sm btn-danger">Remover</button>
+                </td>
+              </tr>
+              
+            </tbody>
+          </table>
+        </div>
       </div>
-      <div class="col-md-4 text-end">
-        <h4>Total: R$ 10,00</h4>
-        <button class="btn btn-success">Finalizar Venda</button>
+
+      <!-- Valores e total -->
+      <div class="col-md-4">
+        <div class="mb-3">
+          <label>Valor da Unidade</label>
+          <input type="text" class="form-control" readonly />
+        </div>
+        <div class="mb-3">
+          <label>Valor do Total das Unidades</label>
+          <input type="text" class="form-control" readonly />
+        </div>
+        <div class="mb-3">
+          <label>Desconto</label>
+          <input type="text" class="form-control" />
+        </div>
+        <div>
+          <label>Total</label>
+          <input type="text" class="form-control" readonly />
+        </div>
+      </div>
+    </div>
+
+    <!-- Área inferior -->
+    <div class="row mt-3">
+      <div class="col-md-3">
+        <input type="text" class="form-control" placeholder="CPF do cliente" />
+      </div>
+      <div class="col-md-3">
+        <input type="text" class="form-control" placeholder="Nome do cliente" />
+      </div>
+      <div class="col-md-3">
+        <button class="btn btn-secondary w-100">Atalho para Itens Rápidos</button>
+      </div>
+      <div class="col-md-3">
+        <button class="btn btn-success w-100">Finalizar Compra</button>
       </div>
     </div>
   </div>
-  
+</div>
