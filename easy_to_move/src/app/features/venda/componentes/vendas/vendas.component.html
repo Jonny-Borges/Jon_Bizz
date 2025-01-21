@@ -3,14 +3,13 @@
     <!-- Campo de pesquisa -->
     <div class="row mb-3">
       <div class="col-md-10">
-        <input 
-          type="text" 
-          class="form-control" 
-          placeholder="Digite o código ou nome do produto"
-        />
+        <input type="text" class="form-control" placeholder="Digite o código ou nome do produto" [(ngModel)]="filtro" />
       </div>
       <div class="col-md-2">
-        <button class="btn btn-primary w-100">Pesquisar</button>
+        <button class="btn btn-primary w-100" (click)="pesquisarProduto()">
+          Pesquisar
+        </button>
+
       </div>
     </div>
 
@@ -18,10 +17,7 @@
     <div class="row">
       <!-- Lista de produtos -->
       <div class="col-md-8">
-        <div 
-          class="border rounded p-3 bg-light"
-          style="height: 500px; overflow-y: auto;"
-        >
+        <div class="border rounded p-3 bg-light" style="height: 500px; overflow-y: auto;">
           <table class="table">
             <thead>
               <tr>
@@ -33,189 +29,19 @@
               </tr>
             </thead>
             <tbody>
-              <!-- Itens adicionados -->
-              <tr>
-                <td>Produto 1</td>
-                <td>2</td>
-                <td>R$ 20,00</td>
-                <td>R$ 40,00</td>
+              <tr *ngFor="let produto of produtosAdicionados">
+                <td>{{ produto.nome }}</td>
+                <td>{{ produto.quantidade }}</td>
+                <td>R$ {{ produto.preco | number: '1.2-2' }}</td>
+                <td>R$ {{ produto.total | number: '1.2-2' }}</td>
                 <td>
-                  <button class="btn btn-sm btn-danger">Remover</button>
+                  <button class="btn btn-sm btn-danger" (click)="removerProduto(produto)">
+                    Remover
+                  </button>
                 </td>
               </tr>
-              <tr>
-                <td>Produto 2</td>
-                <td>1</td>
-                <td>R$ 15,00</td>
-                <td>R$ 15,00</td>
-                <td>
-                  <button class="btn btn-sm btn-danger">Remover</button>
-                </td>
-              </tr>
-              <tr>
-                <td>Produto 3</td>
-                <td>5</td>
-                <td>R$ 10,00</td>
-                <td>R$ 50,00</td>
-                <td>
-                  <button class="btn btn-sm btn-danger">Remover</button>
-                </td>
-              </tr>
-              <tr>
-                <td>Produto 4</td>
-                <td>3</td>
-                <td>R$ 30,00</td>
-                <td>R$ 90,00</td>
-                <td>
-                  <button class="btn btn-sm btn-danger">Remover</button>
-                </td>
-              </tr>
-              <tr>
-                <td>Produto 4</td>
-                <td>3</td>
-                <td>R$ 30,00</td>
-                <td>R$ 90,00</td>
-                <td>
-                  <button class="btn btn-sm btn-danger">Remover</button>
-                </td>
-              </tr>
-              <tr>
-                <td>Produto 4</td>
-                <td>3</td>
-                <td>R$ 30,00</td>
-                <td>R$ 90,00</td>
-                <td>
-                  <button class="btn btn-sm btn-danger">Remover</button>
-                </td>
-              </tr>
-              <tr>
-                <td>Produto 4</td>
-                <td>3</td>
-                <td>R$ 30,00</td>
-                <td>R$ 90,00</td>
-                <td>
-                  <button class="btn btn-sm btn-danger">Remover</button>
-                </td>
-              </tr>
-              <tr>
-                <td>Produto 4</td>
-                <td>3</td>
-                <td>R$ 30,00</td>
-                <td>R$ 90,00</td>
-                <td>
-                  <button class="btn btn-sm btn-danger">Remover</button>
-                </td>
-              </tr>
-              <tr>
-                <td>Produto 4</td>
-                <td>3</td>
-                <td>R$ 30,00</td>
-                <td>R$ 90,00</td>
-                <td>
-                  <button class="btn btn-sm btn-danger">Remover</button>
-                </td>
-              </tr>
-              <tr>
-                <td>Produto 4</td>
-                <td>3</td>
-                <td>R$ 30,00</td>
-                <td>R$ 90,00</td>
-                <td>
-                  <button class="btn btn-sm btn-danger">Remover</button>
-                </td>
-              </tr>
-              <tr>
-                <td>Produto 4</td>
-                <td>3</td>
-                <td>R$ 30,00</td>
-                <td>R$ 90,00</td>
-                <td>
-                  <button class="btn btn-sm btn-danger">Remover</button>
-                </td>
-              </tr>
-              <tr>
-                <td>Produto 4</td>
-                <td>3</td>
-                <td>R$ 30,00</td>
-                <td>R$ 90,00</td>
-                <td>
-                  <button class="btn btn-sm btn-danger">Remover</button>
-                </td>
-              </tr>
-              <tr>
-                <td>Produto 4</td>
-                <td>3</td>
-                <td>R$ 30,00</td>
-                <td>R$ 90,00</td>
-                <td>
-                  <button class="btn btn-sm btn-danger">Remover</button>
-                </td>
-              </tr>
-              <tr>
-                <td>Produto 4</td>
-                <td>3</td>
-                <td>R$ 30,00</td>
-                <td>R$ 90,00</td>
-                <td>
-                  <button class="btn btn-sm btn-danger">Remover</button>
-                </td>
-              </tr>
-              <tr>
-                <td>Produto 4</td>
-                <td>3</td>
-                <td>R$ 30,00</td>
-                <td>R$ 90,00</td>
-                <td>
-                  <button class="btn btn-sm btn-danger">Remover</button>
-                </td>
-              </tr>
-              <tr>
-                <td>Produto 4</td>
-                <td>3</td>
-                <td>R$ 30,00</td>
-                <td>R$ 90,00</td>
-                <td>
-                  <button class="btn btn-sm btn-danger">Remover</button>
-                </td>
-              </tr>
-              <tr>
-                <td>Produto 4</td>
-                <td>3</td>
-                <td>R$ 30,00</td>
-                <td>R$ 90,00</td>
-                <td>
-                  <button class="btn btn-sm btn-danger">Remover</button>
-                </td>
-              </tr>
-              <tr>
-                <td>Produto 4</td>
-                <td>3</td>
-                <td>R$ 30,00</td>
-                <td>R$ 90,00</td>
-                <td>
-                  <button class="btn btn-sm btn-danger">Remover</button>
-                </td>
-              </tr>
-              <tr>
-                <td>Produto 4</td>
-                <td>3</td>
-                <td>R$ 30,00</td>
-                <td>R$ 90,00</td>
-                <td>
-                  <button class="btn btn-sm btn-danger">Remover</button>
-                </td>
-              </tr>
-              <tr>
-                <td>Produto 4</td>
-                <td>3</td>
-                <td>R$ 30,00</td>
-                <td>R$ 90,00</td>
-                <td>
-                  <button class="btn btn-sm btn-danger">Remover</button>
-                </td>
-              </tr>
-              
             </tbody>
+
           </table>
         </div>
       </div>
@@ -224,37 +50,37 @@
       <div class="col-md-4">
         <div class="mb-3">
           <label>Valor da Unidade</label>
-          <input type="text" class="form-control" readonly />
+          <input type="text" class="form-control" [value]="valorUnidade | number: '1.2-2'" readonly />
         </div>
         <div class="mb-3">
           <label>Valor do Total das Unidades</label>
-          <input type="text" class="form-control" readonly />
+          <input type="text" class="form-control" [value]="valorTotal | number: '1.2-2'" readonly />
         </div>
         <div class="mb-3">
           <label>Desconto</label>
-          <input type="text" class="form-control" />
+          <input type="text" class="form-control" [(ngModel)]="desconto" />
         </div>
         <div>
           <label>Total</label>
-          <input type="text" class="form-control" readonly />
+          <input type="text" class="form-control" [value]="total | number: '1.2-2'" readonly />
+        </div>
+
+      </div>
+
+      <!-- Área inferior -->
+      <div class="row mt-3">
+        <div class="col-md-3">
+          <input type="text" class="form-control" placeholder="CPF do cliente" [(ngModel)]="cpfCliente" />
+        </div>
+        <div class="col-md-3">
+          <input type="text" class="form-control" placeholder="Nome do cliente" [(ngModel)]="nomeCliente" />
+        </div>
+        <div class="col-md-3">
+          <button class="btn btn-secondary w-100">Atalho para Itens Rápidos</button>
+        </div>
+        <div class="col-md-3">
+          <button class="btn btn-success w-100">Finalizar Compra</button>
         </div>
       </div>
     </div>
-
-    <!-- Área inferior -->
-    <div class="row mt-3">
-      <div class="col-md-3">
-        <input type="text" class="form-control" placeholder="CPF do cliente" />
-      </div>
-      <div class="col-md-3">
-        <input type="text" class="form-control" placeholder="Nome do cliente" />
-      </div>
-      <div class="col-md-3">
-        <button class="btn btn-secondary w-100">Atalho para Itens Rápidos</button>
-      </div>
-      <div class="col-md-3">
-        <button class="btn btn-success w-100">Finalizar Compra</button>
-      </div>
-    </div>
   </div>
-</div>

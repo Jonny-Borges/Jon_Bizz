@@ -51,7 +51,7 @@ export const routes: Routes = [
         path: 'vendas',
         loadComponent: () =>
           import('./features/venda/componentes/vendas/vendas.component').then(
-            (m) => m.VendasComponent
+            (m) => m.VendasGenericaComponent // Nome correto do componente
           ),
       },
       {
