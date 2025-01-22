@@ -13,15 +13,13 @@ import { FormsModule } from '@angular/forms'; // Importe o FormsModule
   styleUrls: ['./vendas.component.scss'],
 })
 export class VendasGenericaComponent {
-
   cpfCliente: string = '';
   nomeCliente: string = '';
-
 
   valorUnidade: number = 0;
   valorTotal: number = 0;
   desconto: number = 0;
-  total: number = 0;
+
   // Lista de produtos simulada (base de dados)
   produtosDisponiveis = [
     { id: 1, nome: 'Produto 1', preco: 20 },
@@ -43,13 +41,13 @@ export class VendasGenericaComponent {
       alert('Digite algo no campo de pesquisa antes de buscar um produto.');
       return;
     }
-  
+
     const produtoEncontrado = this.produtosDisponiveis.find(
       (produto) =>
         produto.nome.toLowerCase().includes(this.filtro.toLowerCase()) ||
         produto.id.toString() === this.filtro
     );
-  
+
     if (produtoEncontrado) {
       this.adicionarProduto(produtoEncontrado);
       this.filtro = ''; // Limpa o campo de pesquisa
@@ -57,7 +55,6 @@ export class VendasGenericaComponent {
       alert('Produto não encontrado!');
     }
   }
-  
 
   // Adiciona um produto à lista
   adicionarProduto(produto: any) {
@@ -74,7 +71,7 @@ export class VendasGenericaComponent {
         nome: produto.nome,
         preco: produto.preco,
         quantidade: 1,
-        total: produto.preco,
+        total: produto.preco, // Define o total inicial como preco
       });
     }
   }
@@ -84,5 +81,21 @@ export class VendasGenericaComponent {
     this.produtosAdicionados = this.produtosAdicionados.filter(
       (p) => p.id !== produto.id
     );
+  }
+
+  // Calcula o total geral
+  getTotalGeral(): number {
+    if (!this.produtosAdicionados || this.produtosAdicionados.length === 0) {
+      return 0; // Garante que 0 seja retornado caso a lista esteja vazia
+    }
+    return this.produtosAdicionados.reduce((total, produto) => {
+      return total + (produto.total || 0); // Evita problemas com valores indefinidos
+    }, 0);
+  }
+
+  // Formata o total geral como string
+  getTotalGeralFormatado(): string {
+    const total = this.getTotalGeral();
+    return `R$ ${total.toFixed(2)}`; // Formata o total como string
   }
 }
