@@ -38,12 +38,18 @@ export class VendasGenericaComponent {
 
   // Pesquisa e adiciona o produto
   pesquisarProduto() {
+    // Verifica se o campo de pesquisa está vazio
+    if (!this.filtro.trim()) {
+      alert('Digite algo no campo de pesquisa antes de buscar um produto.');
+      return;
+    }
+  
     const produtoEncontrado = this.produtosDisponiveis.find(
       (produto) =>
         produto.nome.toLowerCase().includes(this.filtro.toLowerCase()) ||
         produto.id.toString() === this.filtro
     );
-
+  
     if (produtoEncontrado) {
       this.adicionarProduto(produtoEncontrado);
       this.filtro = ''; // Limpa o campo de pesquisa
@@ -51,6 +57,7 @@ export class VendasGenericaComponent {
       alert('Produto não encontrado!');
     }
   }
+  
 
   // Adiciona um produto à lista
   adicionarProduto(produto: any) {
