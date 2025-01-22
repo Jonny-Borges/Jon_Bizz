@@ -36,7 +36,6 @@ export class VendasGenericaComponent {
 
   // Pesquisa e adiciona o produto
   pesquisarProduto() {
-    // Verifica se o campo de pesquisa está vazio
     if (!this.filtro.trim()) {
       alert('Digite algo no campo de pesquisa antes de buscar um produto.');
       return;
@@ -50,13 +49,14 @@ export class VendasGenericaComponent {
 
     if (produtoEncontrado) {
       this.adicionarProduto(produtoEncontrado);
-      this.filtro = ''; // Limpa o campo de pesquisa
+      this.filtro = '';
     } else {
       alert('Produto não encontrado!');
     }
   }
 
   // Adiciona um produto à lista
+
   adicionarProduto(produto: any) {
     const produtoExistente = this.produtosAdicionados.find(
       (p) => p.id === produto.id
@@ -71,7 +71,7 @@ export class VendasGenericaComponent {
         nome: produto.nome,
         preco: produto.preco,
         quantidade: 1,
-        total: produto.preco, // Define o total inicial como preco
+        total: produto.preco,
       });
     }
   }
@@ -83,13 +83,9 @@ export class VendasGenericaComponent {
     );
   }
 
-  // Calcula o total geral
   getTotalGeral(): number {
-    if (!this.produtosAdicionados || this.produtosAdicionados.length === 0) {
-      return 0; // Garante que 0 seja retornado caso a lista esteja vazia
-    }
     return this.produtosAdicionados.reduce((total, produto) => {
-      return total + (produto.total || 0); // Evita problemas com valores indefinidos
+      return total + (produto.total || 0);
     }, 0);
   }
 
@@ -98,4 +94,49 @@ export class VendasGenericaComponent {
     const total = this.getTotalGeral();
     return `R$ ${total.toFixed(2)}`; // Formata o total como string
   }
+
+  finalizarVenda() {
+    if (this.produtosAdicionados.length === 0) {
+      alert('Não há produtos na lista para finalizar a venda.');
+      return;
+    }
+
+   // if (!this.nomeCliente.trim()) {
+   //   alert('Por favor, preencha o nome do cliente.');
+    //  return;
+    //}
+
+    // Reunir os dados da venda
+    const dadosVenda = {
+      cliente: {
+        nome: this.nomeCliente,
+        cpf: this.cpfCliente || 'Não informado',
+      },
+      produtos: this.produtosAdicionados,
+      total: this.getTotalGeral(),
+      desconto: this.desconto,
+      totalComDesconto: this.getTotalGeral() - this.desconto,
+    };
+
+    // Simular envio (por enquanto, apenas logar no console)
+    console.log('Venda finalizada:', dadosVenda);
+
+    alert('Venda finalizada com sucesso!');
+    this.limparVenda(); // Limpar os dados após finalizar
+  }
+
+  limparVenda() {
+    this.produtosAdicionados = [];
+    this.cpfCliente = '';
+    this.nomeCliente = '';
+    this.filtro = '';
+    this.desconto = 0;
+    this.valorUnidade = 0;
+    this.valorTotal = 0;
+  }
+
+
+
+
+
 }

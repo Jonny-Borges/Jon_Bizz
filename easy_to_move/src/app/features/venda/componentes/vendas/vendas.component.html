@@ -3,12 +3,7 @@
     <!-- Campo de pesquisa -->
     <div class="row mb-3">
       <div class="col-md-10">
-        <input
-          type="text"
-          class="form-control"
-          placeholder="Digite o código ou nome do produto"
-          [(ngModel)]="filtro"
-        />
+        <input type="text" class="form-control" placeholder="Digite o código ou nome do produto" [(ngModel)]="filtro" />
       </div>
       <div class="col-md-2">
         <button class="btn btn-primary w-100" (click)="pesquisarProduto()">
@@ -21,10 +16,7 @@
     <div class="row">
       <!-- Lista de produtos -->
       <div class="col-md-8">
-        <div
-          class="border rounded p-3 bg-light"
-          style="height: 500px; overflow-y: auto;"
-        >
+        <div class="border rounded p-3 bg-light" style="height: 500px; overflow-y: auto;">
           <table class="table">
             <thead>
               <tr>
@@ -42,10 +34,7 @@
                 <td>R$ {{ produto.preco | number: '1.2-2' }}</td>
                 <td>R$ {{ produto.total | number: '1.2-2' }}</td>
                 <td>
-                  <button
-                    class="btn btn-sm btn-danger"
-                    (click)="removerProduto(produto)"
-                  >
+                  <button class="btn btn-sm btn-danger" (click)="removerProduto(produto)">
                     Remover
                   </button>
                 </td>
@@ -59,66 +48,37 @@
       <div class="col-md-4">
         <div class="mb-3">
           <label>Valor da Unidade</label>
-          <input
-            type="text"
-            class="form-control"
-            [value]="valorUnidade | number: '1.2-2'"
-            readonly
-          />
+          <input type="text" class="form-control" [value]="valorUnidade | number: '1.2-2'" readonly />
         </div>
         <div class="mb-3">
           <label>Valor do Total das Unidades</label>
-          <input
-            type="text"
-            class="form-control"
-            [value]="valorTotal | number: '1.2-2'"
-            readonly
-          />
+          <input type="text" class="form-control" [value]="valorTotal | number: '1.2-2'" readonly />
         </div>
         <div class="mb-3">
           <label>Desconto</label>
-          <input
-            type="text"
-            class="form-control"
-            [(ngModel)]="desconto"
-          />
+          <input type="text" class="form-control" [(ngModel)]="desconto" />
         </div>
         <div>
           <label>Total Geral</label>
-          <input
-            type="text"
-            class="form-control"
-            [value]="getTotalGeralFormatado()"
-            readonly
-          />
+          <input type="text" class="form-control" [value]="getTotalGeralFormatado()" readonly />
         </div>
       </div>
 
       <!-- Área inferior -->
       <div class="row mt-3">
         <div class="col-md-3">
-          <input
-            type="text"
-            class="form-control"
-            placeholder="CPF do cliente"
-            [(ngModel)]="cpfCliente"
-          />
+          <input type="text" class="form-control" placeholder="CPF do cliente" [(ngModel)]="cpfCliente" />
         </div>
         <div class="col-md-3">
-          <input
-            type="text"
-            class="form-control"
-            placeholder="Nome do cliente"
-            [(ngModel)]="nomeCliente"
-          />
+          <input type="text" class="form-control" placeholder="Nome do cliente" [(ngModel)]="nomeCliente" />
         </div>
         <div class="col-md-3">
-          <button class="btn btn-secondary w-100">
+          <button class="btn btn-secondary w-100 ">
             Atalho para Itens Rápidos
           </button>
         </div>
         <div class="col-md-3">
-          <button class="btn btn-success w-100">
+          <button class="btn btn-success w-100" (click)="finalizarVenda()">
             Finalizar Compra
           </button>
         </div>
