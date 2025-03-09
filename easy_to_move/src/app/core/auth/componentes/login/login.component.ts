@@ -29,7 +29,9 @@ export class LoginComponent {
   handleLogin() {
     if (this.authService.login(this.email, this.password)) {
       this.errorMessage = ''; // Limpa a mensagem de erro se o login foi bem-sucedido
-      this.router.navigate(['/home']); // Redireciona para a rota "/home"
+
+      //alterado o home para estoque, por hora, mas o normal deve ser home como dito no comentario abaixo
+      this.router.navigate(['/estoque']); // Redireciona para a rota "/home"
     } else {
       this.errorMessage = 'Email ou senha inválidos.'; // Mostra a mensagem de erro
     }
